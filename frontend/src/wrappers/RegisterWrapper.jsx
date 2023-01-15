@@ -17,14 +17,14 @@ const RegisterWrapper = styled.section`
   .form-register {
     width: 90vw;
     max-width: 450px;
-    border-top: 5px solid var(--primary-500);
-    background: var(--white);
-    border-radius: var(--borderRadius);
-    box-shadow: var(--shadow-2);
+    border-top: 5px solid #110101;
+    background: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     padding-inline: 40px;
     padding-bottom: 35px;
     margin: 0 auto;
-    transition: var(--transition);
+    transition: 0.3s ease-in-out all;
   }
 
   .form-row {
@@ -33,18 +33,18 @@ const RegisterWrapper = styled.section`
 
   .form-label {
     display: block;
-    font-size: var(--smallText);
+    font-size: 0.875rem;
     margin-bottom: 7px;
     text-transform: capitalize;
-    letter-spacing: var(--letterSpacing);
+    letter-spacing: 1px;
   }
 
   .form-input {
     width: 100%;
     padding: 12px 10px;
-    border-radius: var(--borderRadius);
-    background: var(--backgroundColor);
-    border: 1px solid var(--grey-200);
+    border-radius: 0.25rem;
+    background: #f0f4f8;
+    border: 1px solid #bcccdc;
     margin-bottom: 15px;
   }
 
@@ -91,7 +91,7 @@ const RegisterWrapper = styled.section`
     border: transparent;
     color: #1d4ed8;
     cursor: pointer;
-    letter-spacing: var(--letterSpacing);
+    letter-spacing: 1px;
     font-family: ALSArtemiusSans, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 400;
