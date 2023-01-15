@@ -1,5 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
+const { HotModuleReplacementPlugin } = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
@@ -40,7 +40,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'bundle.css'
     }),
