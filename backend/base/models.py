@@ -5,8 +5,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class WeatherModel(models.Model):
-    id_city = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    temperature = models.DecimalField(max_digits=50, decimal_places=3, null=True, blank=True)
+    name = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    temperature_pos = models.DecimalField(max_digits=50, decimal_places=3, null=True, blank=True)
+    temperature_neg = models.DecimalField(max_digits=50, decimal_places=3, null=True, blank=True)
+    temperature_curr = models.CharField(max_length=5, blank=True, null=True)
     description = models.TextField(null=True, blank=True)
     max_temperature = models.DecimalField(max_digits=50, decimal_places=3, null=True, blank=True)
     min_temperature = models.DecimalField(max_digits=50, decimal_places=3, null=True, blank=True)
