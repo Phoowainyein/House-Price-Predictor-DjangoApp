@@ -8,20 +8,21 @@ import {
 
 const initialState = {
   isLoading: false,
-  userInfo: getUserFromLocalStorage()
+  user: getUserFromLocalStorage()
 }
 
 export const registerUser = createAsyncThunk(
   'user/registerUser',
   async ({ name, email, password }, thunkAPI) => {
     try {
-      const resp = await customFetch.post('/api/auth/register', {
-        email,
+      const resp = await customFetch.post('users/register_user/', {
         name,
+        email,
         password
       })
       console.log(resp)
-      return resp.data
+      const { data } = resp
+      return data
     } catch (error) {
       console.log('ERROR: response.status: ' + error.response.status)
       console.log(error.response.data)
@@ -57,11 +58,12 @@ const userSlice = createSlice({
         state.isLoading = true
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        const { userInfo } = payload
+        const { email, id, name, token, username } = payload
+        console.log('userInfo ' + JSON.stringify(payload))
         state.isLoading = false
-        state.user = userInfo
-        addUserToLocalStorage(userInfo)
-        toast.success(`Hello there ${userInfo.name}.`)
+        state.user = { email, id, name, token, username }
+        addUserToLocalStorage({ email, id, name, token, username })
+        toast.success(`Hello there ${name}.`)
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         const { error } = payload

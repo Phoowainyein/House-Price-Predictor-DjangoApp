@@ -38,6 +38,7 @@ const Register = () => {
       dispatch(loginUser({ email, password }))
     }
     if (!isMember) {
+      console.log('name: ' + name)
       dispatch(registerUser({ name, email, password }))
     }
   }
