@@ -7,19 +7,19 @@
 		
 		body {
 			font-family: Arial, sans-serif;
-            background-color: black;
+            background-color:#1c1c27;
 		}
         
             
 		h1 {
 			margin-top: 50px;
 			text-align: center;
-            color: aqua;
+            color: #05c270;
 		}
         /* intro text section */
         .intro {
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
+            background-color: #1c1c27;
+            border: 1px solid #1e1e2a;
             padding: 10px;
             border-radius: 5px;
             text-align: center;
@@ -28,18 +28,18 @@
 
         .intro p {
         font-size: 1.2rem;
-        color: #333;
+        color: rgba(255, 255, 255, 0.777);
         }
 
 		/* nav bar  */
 		#navbar {
-        background-color: #5161ce;
+        background-color: #28293d;
         overflow: hidden;
 		
       }
       #navbar a {
         float: left;
-        color: black;
+        color: #05c270;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -47,10 +47,13 @@
       }
       #navbar a:hover {
         /* background-color: #ddd; */
-        color: #5161ce;
+        color:#8ff794;
       }
       .active {
-        background-color: #FF8C00;
+        /* background-color: #4CAF50; */
+		border: 1px solid #4CAF50;
+		border-radius: 8px;
+		
 		transition: background-color 3s ease-in-out;
 
       }
@@ -60,7 +63,7 @@
         position: absolute;
         /* top: 50px; */
         left: 0;
-        background-color: #FF8C00;
+        background-color:#0d8907;
         transition: all 5s ease-out;
       }
       #navbar a:hover .hori-selector,
@@ -76,12 +79,10 @@
 		right: 20px;
 		font-weight: bold;
 		font-size: 1.2em;
-		color: black;
+		color:rgba(255, 255, 255, 0.777);
 		
 		}
 
-
-	
 
 		
 		form {
@@ -94,13 +95,13 @@
 		label {
 			display: inline-block;
 			padding: 10px 20px;
-			background-color: #007bff;
+			background-color: #0d8907;
 			color: #fff;
 			border-radius: 5px;
 			cursor: pointer;
 		}
 		label:hover {
-			background-color: #0062cc;
+			background-color: #1cd312;
 		}
 
         /* form div styling */
@@ -113,10 +114,12 @@
 	height: 400px;
 	margin-top: -200px;
 	margin-left: -200px;
-	border-radius: 2px;
+	border: 1px solid #4CAF50;
+	border-radius: 8px;
+	
 	box-shadow: 4px 8px 16px 0 rgba(156, 233, 181, 0.1);
 	overflow: hidden;
-	background: linear-gradient(to top right, rgb(0, 139, 49) 0%, rgb(105, 255, 205) 100%);
+	background: #28293d;
 	color: #333;
 	font-family: "Open Sans", Helvetica, sans-serif;
 }
@@ -128,9 +131,11 @@
 	transform: translate(-50%, -50%);
 	width: 300px;
 	height: 260px;
-	border-radius: 3px;
+
+	border-radius: 8px; 
+	
 	box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
-	background: #fff;
+	background: #1c1c27;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -148,7 +153,7 @@
 .title p {
   font-family: "Open Sans", sans-serif;
   font-size: 28px;
-  color: #000;
+  color: #05c270;
   margin: 0;
 }
 
@@ -201,7 +206,7 @@
 
 	// Change the submit button's background color and size when a file is selected
 		 const submitButton = document.querySelector("input[type='submit']");
-    submitButton.style.backgroundColor = "#ffa15a";
+    submitButton.style.backgroundColor = "#0d8907";
     submitButton.style.fontSize = "1.2em";
     submitButton.style.padding = "12px 24px";
             
