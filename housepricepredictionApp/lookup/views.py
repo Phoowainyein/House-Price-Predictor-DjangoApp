@@ -94,4 +94,4 @@ def predict(request):
     return render(request,'predict.html',{})
 
 def predict_model(request):
-    
+    pass

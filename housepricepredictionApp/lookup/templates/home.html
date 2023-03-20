@@ -50,7 +50,7 @@
         color: #5161ce;
       }
       .active {
-        background-color: #4CAF50;
+        background-color: #FF8C00;
 		transition: background-color 3s ease-in-out;
 
       }
@@ -60,7 +60,7 @@
         position: absolute;
         /* top: 50px; */
         left: 0;
-        background-color: rgb(126, 196, 107);
+        background-color: #FF8C00;
         transition: all 5s ease-out;
       }
       #navbar a:hover .hori-selector,
@@ -151,7 +151,10 @@
   color: #000;
   margin: 0;
 }
-    
+
+.hidden {
+    display: none;
+}
 	</style>
 </head>
 <body>
@@ -187,14 +190,33 @@
 </div>
 
 	<script>
-		// document.getElementById("file-upload").addEventListener("change", function() {
-		// 	// Code to execute when a file is selected
-		// 	// For example, switch to a new page:
-		// 	window.location.href = "secondpage.html";
+		document.getElementById("file-upload").addEventListener("change", function() {
+			// Code to execute when a file is selected
+			// For this case , will hide the button:
+			const selectFileButton = document.querySelector("label[for='file-upload']");
+    selectFileButton.classList.add("hidden");
+	  // Change the "Upload your file" text to "Submit your file" when a file is selected
+	  const uploadText = document.querySelector(".title p");
+            uploadText.textContent = "Submit your file !";
+
+	// Change the submit button's background color and size when a file is selected
+		 const submitButton = document.querySelector("input[type='submit']");
+    submitButton.style.backgroundColor = "#ffa15a";
+    submitButton.style.fontSize = "1.2em";
+    submitButton.style.padding = "12px 24px";
             
-		// });
+		});
         document.querySelector('form').addEventListener('submit', function(e) {
 		e.preventDefault(); // prevent the form from submitting normally
+
+		const fileInput = document.querySelector('#file-upload');
+    	const file = fileInput.files[0];
+    	const allowedExtensions = /(\.csv)$/i; // regular expression to match CSV files
+    	if (!allowedExtensions.exec(file.name)) {
+        alert('Please select a CSV file.');
+        fileInput.value = '';
+        return false;
+    }
 		
 		// create a FormData object to send the file with the form data
 		const formData = new FormData();
@@ -223,7 +245,8 @@
         });
         element.classList.add("active");
     }
-
+	
+	
 
 
 
