@@ -9,10 +9,12 @@ import pandas as pd
 from django.http import JsonResponse
 import json
 
+#for training
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import pickle
+import numpy as np
 
 
 # Create your views here.
@@ -94,4 +96,28 @@ def predict(request):
     return render(request,'predict.html',{})
 
 def predict_model(request):
-    pass
+    
+    zip_code = request.GET.get('n1')
+    square_meters = request.GET.get('n2')
+    acre_size = request.GET.get('n3')
+    num_bedrooms = request.GET.get('n4')
+    num_bathrooms = request.GET.get('n5')
+    print(zip_code)
+
+    # Load the trained model
+    with open(os.path.join(settings.BASE_DIR,  'trained_model.pkl'), 'rb') as f:
+        model = pickle.load(f)
+
+    # Create the input array for prediction
+    input_array = np.array([zip_code, square_meters, acre_size, num_bedrooms, num_bathrooms]).astype(float)
+
+
+    # Make a prediction using the loaded model
+    pred = model.predict(input_array.reshape(1, -1))[0]
+    pred = round(pred)
+    print('predicted price is :',pred)
+
+    # Return the predicted price as JsonResponse
+    return JsonResponse({'predicted_price': pred})
+    
+    

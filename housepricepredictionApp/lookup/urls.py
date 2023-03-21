@@ -9,7 +9,8 @@ urlpatterns = [
     # path('upload_csv_view/',views.upload_csv_view,name='upload_csv_view'),
     path('train.html',views.train,name='train'),
     path('train_model/', views.train_model, name='train_model'),
-    path('predict.html',views.predict,name='predict')
+    path('predict.html',views.predict,name='predict'),
+    path('predict_model/', views.predict_model, name='predict_model'),
     
 
 

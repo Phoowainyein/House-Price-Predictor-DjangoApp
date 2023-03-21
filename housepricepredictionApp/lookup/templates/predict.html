@@ -63,7 +63,7 @@
 		right: 20px;
 		font-weight: bold;
 		font-size: 1.2em;
-		color: black;
+		color: rgba(255, 255, 255, 0.777);
 		
 		}
     .select {
@@ -82,6 +82,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 900px;
+    text-align: center;
 }
 
 .row {
@@ -124,6 +125,10 @@ input[type="text"] {
 
 .button:hover {
     background-color: #1cd312;
+}
+#predict-price {
+  display: block;
+  margin: 0 auto;
 }
     
 </style>
@@ -170,13 +175,42 @@ input[type="text"] {
 
       </div>
       <button class="button" id="predict-price">Predict Price</button>
+      <div id="result-div"></div>
+
+
+      <script>
+          // Get the predict button and result div elements
+        const predictButton = document.getElementById("predict-price");
+        const resultDiv = document.getElementById("result-div");
+
+         // Add a click event listener to the predict button
+        predictButton.addEventListener("click", () => {
+          // Get the input values for zip code, square meters, acre size, number of bedrooms, and number of bathrooms
+          const zipCode = document.getElementsByName("n1")[0].value;
+          const squareMeters = document.getElementsByName("n2")[0].value;
+          const acreSize = document.getElementsByName("n3")[0].value;
+          const numBedrooms = document.getElementsByName("n4")[0].value;
+          const numBathrooms = document.getElementsByName("n5")[0].value;
+          
+         // Create a new XML HTTP request object
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+        // Parse the JSON response
+        const response = JSON.parse(this.responseText);
+       // Display the response in the result div
+        resultDiv.innerHTML = `<p style="color: green; background-color: gray;display: inline-block; padding: 10px; ">The predicted price is: $${response.predicted_price}</p>`;
+      }
+    };
+          xhr.open("GET", `predict_model/?n1=${zipCode}&n2=${squareMeters}&n3=${acreSize}&n4=${numBedrooms}&n5=${numBathrooms}`);
+          xhr.send();
+        });
+      </script>
 
 
 
     
-    <script>
-      
-  </script>
+   
 
 
 	
