@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Apartment4u</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 	<style>
 
 		
@@ -194,6 +196,9 @@
     </div>
 </div>
 
+
+
+
 	<script>
 		document.getElementById("file-upload").addEventListener("change", function() {
 			// Code to execute when a file is selected
@@ -228,20 +233,29 @@
 		formData.append('csv_file', document.querySelector('#file-upload').files[0]);
 		
 		// send the form data to the server using an AJAX request
-		fetch('/upload_csv/', {
-			method: 'POST',
-			body: formData,
-			headers: {
-				'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value
-			}
-		}).then(response => {
-			if (response.ok) {
-				// redirect to the secondpage.html page if the upload was successful
-				window.location.href = "train.html";
-			} else {
-				alert('Upload failed.');
-			}
-		});
+fetch('/upload_csv/', {
+    method: 'POST',
+    body: formData,
+    headers: {
+        'X-CSRFToken': document.querySelector('input[name="csrfmiddlewaretoken"]').value
+    }
+}).then(response => {
+    if (response.ok) {
+        // check if the CSV file is valid
+        response.json().then(data => {
+            if (data.is_valid) {
+                // redirect to the train.html page if the upload was successful and the CSV file is valid
+                window.location.href = "train.html";
+            } else {
+                // show the error message if the CSV file is invalid
+                alert(data.error_message);
+            }
+        });
+    } else {
+        alert('Upload failed.');
+    }
+});
+
     });
 	function highlightNav(element) {
         var navLinks = document.querySelectorAll("#navbar a");
@@ -252,6 +266,8 @@
     }
 	
 	
+	
+
 
 
 
