@@ -162,6 +162,36 @@
 .hidden {
     display: none;
 }
+
+
+
+
+
+
+@media screen and (max-height: 700px) {
+  .frame {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+  }
+
+  .center {
+	
+	width: 200px;
+	height: 200px;
+
+	
+}
+.title p {
+
+  font-size: 23px;
+  
+}
+
+}
+
+
 	</style>
 </head>
 <body>
@@ -190,7 +220,8 @@
         {% csrf_token %}
         <label for="file-upload">Select CSV file</label>
         <input type="file" id="file-upload" name="csv_file" accept=".csv">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="hidden">
+
         </form>
         </div>
     </div>
@@ -211,9 +242,21 @@
 
 	// Change the submit button's background color and size when a file is selected
 		 const submitButton = document.querySelector("input[type='submit']");
+		 submitButton.classList.remove("hidden");
     submitButton.style.backgroundColor = "#0d8907";
     submitButton.style.fontSize = "1.2em";
-    submitButton.style.padding = "12px 24px";
+	submitButton.style.padding = "12px 24px";
+submitButton.style.borderRadius = "5px";
+// Change the submit button's hover background color
+submitButton.style.transition = "background-color 0.5s ease-in-out";
+    submitButton.addEventListener("mouseover", function() {
+        submitButton.style.backgroundColor = "#1cd312";
+    });
+    submitButton.addEventListener("mouseout", function() {
+        submitButton.style.backgroundColor = "#0d8907";
+    });
+
+
             
 		});
         document.querySelector('form').addEventListener('submit', function(e) {
