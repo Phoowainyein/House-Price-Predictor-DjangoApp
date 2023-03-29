@@ -9,7 +9,7 @@ db.sqlite3
 
 env/
 media/
-static/
+
 *.log
 
 # Ignore all files in the migrations folder except for __init__.py
