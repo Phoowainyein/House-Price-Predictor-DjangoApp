@@ -14,9 +14,20 @@ https://www.kaggle.com/code/phoonyein/virtualenvinubuntu20-04
 source venv/bin/activate
 ```
 
-#### Install Django 
+#### generate the requirements.txt file 
 
 ```php
-pip install django
+pip install -r requirements.txt
 ```
-Please Note that this application is still under development, and there is a lot of work left to be done! 
+
+####  To ensure that  database schema is always up-to-date
+
+```php
+python manage.py migrate 
+```
+####  Start a local development server
+
+```php
+python manage.py runserver
+```
+
