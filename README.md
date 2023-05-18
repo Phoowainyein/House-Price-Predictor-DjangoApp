@@ -49,4 +49,4 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-![Alt Text](/home/phoo/industrysoftwareProduction/ezgif.com-optimize.gif)
+![Alt Text](https://github.com/Phoowainyein/House-Price-Predictor-DjangoApp/blob/main/ezgif.com-optimize.gif)
