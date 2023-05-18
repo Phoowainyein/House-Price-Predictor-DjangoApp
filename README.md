@@ -49,3 +49,4 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+![Alt Text](/home/phoo/industrysoftwareProduction/ezgif.com-optimize.gif)
